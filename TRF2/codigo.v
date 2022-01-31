@@ -4,22 +4,18 @@ module FSM (
     input w,
     output[2:0] y
 );
-    reg[2:0] J;
-    reg[2:0] K;
+    wire[2:0] J;
+    wire[2:0] K;
     reg[2:0] O;
 
     //equações de excitação
-    assign J[0] = (~O[0] & O[1] & O[2] & w);
-    assign J[1] = (~O[1] & O[2] & w);
-    assign J[2] =(~O[2] & w);
+    assign J[2] = (~O[2] & O[1] & O[0] & w);
+    assign J[1] = (~O[1] & O[0] & w);
+    assign J[0] =(~O[0] & w);
 
-    assign K[0] =(O[0] & O[1] & O[2] & w);
-    assign K[1] = (O[1] & O[2] & w);
-    assign K[2] = (~O[2] & w);
-
-    assign O[0] = J[0] & ~O[0] | ~K[0] & O[0];
-    assign O[1] = J[1] & ~O[1] | ~K[1] & O[1];
-    assign O[2] = J[2] & ~O[2] | ~K[2] & O[2];
+    assign K[2] =(O[2] & O[1] & O[0] & w);
+    assign K[1] = (O[1] & O[0] & w);
+    assign K[0] = (O[0] & w);
 
     assign y[0] = O[0];
     assign y[1] = O[1];
@@ -27,8 +23,8 @@ module FSM (
 
     always @(posedge clk or rst) begin
        //valor
-        if (rst==0) Q <= 000;
-        else Q = D;
+        if (rst==0) O <= 000;
+        else O = J & ~O | ~K & O;
         //logica
     end
 endmodule
@@ -37,7 +33,7 @@ module testbench;
 reg rst0 = 1;
 reg clk0= 0;
 reg w = 0;
-reg[2:0] y0;
+wire[2:0] y0;
 
 FSM FSM0(rst0, clk0, w, y0);
 
