@@ -1,0 +1,78 @@
+$date
+	Fri Feb 04 17:43:55 2022
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module testbench $end
+$var wire 3 ! h [2:0] $end
+$var wire 1 " done $end
+$var wire 3 # c [2:0] $end
+$var reg 1 $ clk0 $end
+$var reg 3 % registrador [2:0] $end
+$var reg 1 & rst0 $end
+$var reg 1 ' w $end
+$scope module FSM0 $end
+$var wire 1 $ clk $end
+$var wire 1 " done $end
+$var wire 3 ( registrador [2:0] $end
+$var wire 1 & rst $end
+$var wire 1 ' w $end
+$var wire 3 ) h [2:0] $end
+$var wire 3 * c [2:0] $end
+$var wire 2 + K [1:0] $end
+$var wire 2 , J [1:0] $end
+$var reg 2 - O [1:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+bx -
+b0x ,
+bx +
+bx *
+bx )
+bx (
+0'
+1&
+bx %
+0$
+bx #
+x"
+bx !
+$end
+#1
+bx01 %
+bx01 (
+1$
+#2
+b0 ,
+b0 +
+0"
+b0 !
+b0 )
+b0 #
+b0 *
+b0 -
+0&
+0$
+#3
+1$
+b10 ,
+1'
+#4
+0$
+b0 ,
+0'
+#5
+1$
+#6
+0$
+#7
+1$
+#8
+0$
