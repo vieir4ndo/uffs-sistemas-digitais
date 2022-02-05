@@ -1,1 +1,0 @@
-Implementar o projeto apresentado na aula do dia 20/12 em Verilog e realizar a análise com a ferramenta do GTKWave.
