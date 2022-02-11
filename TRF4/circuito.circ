@@ -89,7 +89,7 @@
       <a name="appearance" val="NewPins"/>
       <a name="label" val="LH"/>
     </comp>
-    <comp lib="0" loc="(380,140)" name="Pin">
+    <comp lib="0" loc="(370,130)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="label" val="M0"/>
       <a name="width" val="2"/>
@@ -151,14 +151,17 @@
     </comp>
     <comp lib="4" loc="(130,100)" name="Register">
       <a name="appearance" val="logisim_evolution"/>
+      <a name="label" val="R0"/>
       <a name="width" val="16"/>
     </comp>
     <comp lib="4" loc="(210,620)" name="Register">
       <a name="appearance" val="logisim_evolution"/>
+      <a name="label" val="R1"/>
       <a name="width" val="16"/>
     </comp>
     <comp lib="4" loc="(370,620)" name="Register">
       <a name="appearance" val="logisim_evolution"/>
+      <a name="label" val="R2"/>
       <a name="width" val="16"/>
     </comp>
     <comp loc="(340,580)" name="SomadorMultiplicador">
@@ -172,8 +175,8 @@
     <wire from="(190,130)" to="(230,130)"/>
     <wire from="(200,670)" to="(210,670)"/>
     <wire from="(210,290)" to="(230,290)"/>
-    <wire from="(210,610)" to="(210,650)"/>
-    <wire from="(210,610)" to="(340,610)"/>
+    <wire from="(210,590)" to="(210,650)"/>
+    <wire from="(210,590)" to="(340,590)"/>
     <wire from="(230,130)" to="(230,190)"/>
     <wire from="(230,190)" to="(230,270)"/>
     <wire from="(230,190)" to="(420,190)"/>
@@ -193,13 +196,16 @@
     <wire from="(320,340)" to="(320,360)"/>
     <wire from="(340,340)" to="(340,360)"/>
     <wire from="(340,340)" to="(440,340)"/>
-    <wire from="(340,580)" to="(340,610)"/>
-    <wire from="(340,610)" to="(340,650)"/>
+    <wire from="(340,580)" to="(340,590)"/>
+    <wire from="(340,590)" to="(340,650)"/>
     <wire from="(340,650)" to="(370,650)"/>
     <wire from="(350,670)" to="(370,670)"/>
+    <wire from="(370,130)" to="(380,130)"/>
     <wire from="(370,690)" to="(370,720)"/>
+    <wire from="(380,130)" to="(380,140)"/>
     <wire from="(380,140)" to="(410,140)"/>
     <wire from="(390,290)" to="(420,290)"/>
+    <wire from="(410,130)" to="(410,140)"/>
     <wire from="(420,190)" to="(420,270)"/>
     <wire from="(420,20)" to="(420,110)"/>
     <wire from="(420,20)" to="(440,20)"/>
