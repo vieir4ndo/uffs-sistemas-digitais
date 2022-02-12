@@ -1,0 +1,17 @@
+JA = !Y3 Y2 Y1 Y0
+
+KA = Y3 !Y2 Y1 !Y0
+
+JB = !Y3 !Y2 Y1 Y0
+
+KB = !Y3 Y2 Y1 Y0
+
+JC = (!Y3 !Y2 !Y1 Y0) + (!Y3 Y2 !Y1 Y0) + (Y3 !Y2 !Y1 Y0)
+
+KC = (!Y3 !Y2 Y1 Y0) + (!Y3 Y2 Y1 Y0) + (Y3 !Y2 Y1 !Y0)
+
+JD (!Y3 !Y2 !Y1 !Y0 W) + (!Y3 !Y2 Y1 !Y0) + (!Y3 Y2 !Y1 !Y0) + (!Y3 Y2 Y1 !Y0) + (Y3 !Y2 !Y1 !Y0)
+
+KD = (!Y3 !Y2 !Y1 Y0) + (!Y3 !Y2 Y1 Y0) + (!Y3 Y2 !Y1 Y0) + (!Y3 Y2 Y1 Y0) + (Y3 !Y2 !Y1 Y0)
+
+Feito por soma de produtos a partir das tabelas desenvolvidas 
