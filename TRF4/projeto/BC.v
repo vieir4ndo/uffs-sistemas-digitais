@@ -1,4 +1,4 @@
-module FSM (
+module BC (
     input rst,
     input clk,
     input w,
@@ -49,37 +49,3 @@ module FSM (
     end
 endmodule
 
-
-module testbench;
-
-reg rst0 = 1;
-reg clk0= 0;
-reg w = 0;
-wire[3:0] Y;
-wire[1:0] m0;
-wire[1:0] m1;
-wire[1:0] m2;
-wire lx;
-wire ls;
-wire lh;
-wire h;
-wire done;
-
-FSM FSM0(rst0, clk0, w, Y, m0, m1, m2, lx, ls, lh, h, done);
-
-always #1 begin
-    clk0<=~clk0;
-end
-
-initial begin
-    $dumpvars;
-    #1;
-    rst0 <=0;
-    w = 1;
-    #1;
-    w = 0;
-    #30;
-    $finish;
-end
-    
-endmodule
