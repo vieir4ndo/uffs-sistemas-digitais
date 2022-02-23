@@ -1,3 +1,5 @@
+`include "BC.v"
+`include "BO.v"
 
 module testbench;
 
@@ -8,10 +10,10 @@ wire[3:0] Y;
 wire[1:0] m0;
 wire[1:0] m1;
 wire[1:0] m2;
-wire[15:0] A = 0011;
-wire[15:0] B = 0010;
-wire[15:0] C = 0000;
-wire[15:0] Xis = 0001;
+wire[15:0] A = 3;
+wire[15:0] B = 10;
+wire[15:0] C = 5;
+wire[15:0] Xis = 3;
 wire[15:0] resultado;
 wire lx;
 wire ls;
