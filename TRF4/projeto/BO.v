@@ -1,3 +1,7 @@
+`include "registrador.v"
+`include "mux.v"
+`include "ula.v"
+
 module BO (
     input rst,
     input clk,
@@ -12,10 +16,17 @@ module BO (
     input ls,
     input lh,
     input h,
-    output[15:0] resultado
+    registrador resultado
 );
 
-reg[15:0] R1, R2, R3, TEMP;
+wire[15:0] m00, mux0, m01,m02;
+
+registrador R0(Xis, lx, rst, );
+registrador R1(Saida, ls, rst, resultado);
+registrador R2(Saida, lh, rst, );
+
+mux multiplexador0(Xis, A, B, C, m0, mux0);
+mux multiplexador0(0, A, B, C, m0, mux0);
 
 assign resultado = R1;
 
@@ -24,68 +35,7 @@ always @(posedge clk or rst) begin
         begin
             R1 <= 0000;
             R2 <= 0000;
-            R3 <= 0000;
-            TEMP <= 0000;
         end
 
-        //ESTADO B
-        if (m0[1] == 0 & m0[0] == 0 & m1[1] == 0 & m1[0] == 0 & m2[1] == 0 & m2[0] == 0 & lx == 1 & ls == 0 & lh==0 & h == 1)
-        begin 
-            TEMP <= Xis * Xis;
-        end
-
-        //ESTADO C
-        if (m0[1] == 0 & m0[0] == 0 & m1[1] == 0 & m1[0] == 0 & m2[1] == 0 & m2[0] == 0 & lx == 1 & ls == 0 & lh==1 & h == 1)
-        begin 
-            R2 <= Xis * Xis;
-        end
-
-        //ESTADO D
-        if (m0[1] == 0 & m0[0] == 1 & m1[1] == 0 & m1[0] == 1 & m2[1] == 1 & m2[0] == 1 & lx == 1 & ls == 0 & lh==0 & h == 1)
-        begin 
-            TEMP <= R2 * A;
-        end
-
-        //ESTADO E
-        if (m0[1] == 0 & m0[0] == 1 & m1[1] == 0 & m1[0] == 1 & m2[1] == 1 & m2[0] == 1 & lx == 1 & ls == 0 & lh==1 & h == 1)
-        begin 
-            R2 <= TEMP;
-        end
-
-        //ESTADO F
-        if (m0[1] == 1 & m0[0] == 0 & m1[1] == 0 & m1[0] == 1 & m2[1] == 0 & m2[0] == 0 & lx == 1 & ls == 0 & lh==0 & h == 1)
-        begin 
-            TEMP <= Xis * B;
-        end
-
-        //ESTADO G
-        if (m0[1] == 1 & m0[0] == 0 & m1[1] == 0 & m1[0] == 1 & m2[1] == 0 & m2[0] == 0 & lx == 1 & ls == 1 & lh==0 & h == 1)
-        begin 
-            R1 <= TEMP;
-        end
-
-        //ESTADO H
-        if (m0[1] == 0 & m0[0] == 0 & m1[1] == 1 & m1[0] == 1 & m2[1] == 1 & m2[0] == 0 & lx == 1 & ls == 0 & lh==0 & h == 0)
-        begin 
-            TEMP <= R1 + R2;
-        end
-
-        //ESTADO I
-        if (m0[1] == 0 & m0[0] == 0 & m1[1] == 1 & m1[0] == 1 & m2[1] == 1 & m2[0] == 0 & lx == 1 & ls == 0 & lh==1 & h == 0)
-        begin 
-            R2 <= TEMP;
-        end
-
-        //ESTADO J
-        if (m0[1] == 1 & m0[0] == 1 & m1[1] == 0 & m1[0] == 1 & m2[1] == 1 & m2[0] == 1 & lx == 1 & ls == 0 & lh==0 & h == 0)
-        begin 
-            TEMP <= R2 + C;
-        end
-
-        //ESTADO K
-        if (m0[1] == 1 & m0[0] == 1 & m1[1] == 0 & m1[0] == 1 & m2[1] == 1 & m2[0] == 1 & lx == 1 & ls == 1 & lh==0 & h == 0)
-        begin 
-            R1 <= TEMP;
-        end
     end
 endmodule
