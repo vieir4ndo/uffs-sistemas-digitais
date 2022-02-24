@@ -9,33 +9,28 @@ module BO (
     input[15:0] B,
     input[15:0] C,
     input[15:0] Xis,
-    input[1:0] m0,
-    input[1:0] m1,
-    input[1:0] m2,
+    input[0:1] m0,
+    input[0:1] m1,
+    input[0:1] m2,
     input lx,
     input ls,
     input lh,
     input h,
-    registrador resultado
+    output[15:0] resultado
 );
 
-wire[15:0] m00, mux0, m01,m02;
+wire[15:0] saidaMux0, saidaMux1, saidaMux2, saidaR0, saidaR1, saidaR2, saidaULA;
 
-registrador R0(Xis, lx, rst, );
-registrador R1(Saida, ls, rst, resultado);
-registrador R2(Saida, lh, rst, );
+registrador R0(Xis, lx, rst, saidaR0);
 
-mux multiplexador0(Xis, A, B, C, m0, mux0);
-mux multiplexador0(0, A, B, C, m0, mux0);
+mux multiplexador0(A, A, B, C, m0, saidaMux0);
+mux multiplexador1(saidaMux0, saidaR0, saidaR1, saidaR2, m1, saidaMux1);
+mux multiplexador2(saidaR0, saidaMux0, saidaR1, saidaR2, m2, saidaMux2);
 
-assign resultado = R1;
+ula ula0(saidaMux2, saidaMux1, h, saidaULA);
+registrador R1(saidaULA, ls, rst, saidaR1);
+registrador R2(saidaULA, lh, rst, saidaR2);
 
-always @(posedge clk or rst) begin
-        if (rst==1) 
-        begin
-            R1 <= 0000;
-            R2 <= 0000;
-        end
+assign resultado = saidaR1;
 
-    end
 endmodule

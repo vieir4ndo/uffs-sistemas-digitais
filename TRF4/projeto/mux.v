@@ -6,10 +6,16 @@ module mux (
     input[1:0] chave,
     output[15:0] saida
 );
-    case (chave)
-        2'b00 : assign saida = E0;
-        2'b01 : assign saida = E1;
-        2'b10 : assign saida = E2;
-        2'b11: assign saida = E3;
-    endcase
+
+reg[15:0] out;
+assign saida = out;
+
+    always @ (E0, E1, E2, E3) begin
+        case (chave)
+            2'b00 : out <= E0;
+            2'b01 : out <= E1;
+            2'b10 : out <= E2;
+            default : out <= E3;
+        endcase
+    end
 endmodule
