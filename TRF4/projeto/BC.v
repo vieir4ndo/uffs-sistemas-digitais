@@ -57,7 +57,7 @@ module BC (
     assign done = Y[1] & Y[3];
 
     always @(posedge clk or rst) begin
-        if (rst==1) y <= 0000;
+        if (rst==1) y <= 4'b0000;
         else y = J & ~y | ~K & y;
     end
 endmodule

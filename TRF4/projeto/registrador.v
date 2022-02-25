@@ -9,7 +9,7 @@ module registrador (
     assign Q = Y;
 
     always @(posedge load or rst) begin
-        if (rst==1) Y <= 0;
+        if (rst==1) Y <= 16'b0000000000000000;
         else Y = D;
     end
 endmodule
