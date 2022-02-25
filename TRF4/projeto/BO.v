@@ -24,7 +24,7 @@ wire[15:0] saidaMux0, saidaMux1, saidaMux2, saidaR0, saidaR1, saidaR2, saidaULA;
 registrador R0(Xis, lx, rst, saidaR0);
 
 mux multiplexador0(A, A, B, C, m0, saidaMux0);
-mux multiplexador1(saidaMux0, saidaR0, saidaR1, saidaR2, m1, saidaMux1);
+mux multiplexador1(saidaR0, saidaMux0, saidaR1, saidaR2, m1, saidaMux1);
 mux multiplexador2(saidaR0, saidaMux0, saidaR1, saidaR2, m2, saidaMux2);
 
 ula ula0(saidaMux2, saidaMux1, h, saidaULA);

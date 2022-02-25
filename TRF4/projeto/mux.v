@@ -10,7 +10,7 @@ module mux (
 reg[15:0] out;
 assign saida = out;
 
-    always @ (E0, E1, E2, E3) begin
+    always @ (E0, E1, E2, E3, chave) begin
         case (chave)
             2'b00 : out <= E0;
             2'b01 : out <= E1;
