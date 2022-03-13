@@ -1,25 +1,43 @@
-module contador (
-    input[1:0] T, 
-    input clk,
-    input rst,
-    output[1:0] O
-);
-    reg[1:0] J;
-    reg[1:0] K;
+module contador(
+    input             clk,
+    input             clear,
+    input             load,
+    input             count,
+    output reg[3:0]   OUT
+    );
 
-    reg[1:0] Output;
-
-
-    assign J[0] = T;
-    assign J[1] = Output[0];
-
-    assign K[0] = T;
-    assign K[1] = Output[0];
-
-    assign O = Output;
-
-   always @(posedge clk or rst) begin
-        if (rst==1) O <= 000;
-        else Output = J & ~Output | ~K & Output;
-    end
+    always @(posedge clk)
+    if (load == 1) OUT <= 3'b100;
+    else if (count == 1 & OUT != 0 ) OUT <= OUT - 1;
 endmodule
+
+// module testbench;
+
+//     reg clear = 1;
+//     reg clk= 0;
+
+//     wire[2:0] y0;
+//     reg [3:0] IN;
+//     wire[3:0] OUT;
+//     reg count = 0;
+//     reg load = 0;
+
+//    contador c1(clk, clear, load, count, OUT);
+
+//     always #1 begin
+//         clk<=~clk;
+//     end
+
+//    initial begin
+//     $dumpvars;
+//     #1;
+//     clear <=0;
+//     count <=1;
+//     load <=1;
+//     #1;
+//     load <=0;
+//     #16;
+//     $finish;
+//     end
+// endmodule
+
