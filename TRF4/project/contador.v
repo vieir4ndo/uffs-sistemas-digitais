@@ -10,7 +10,7 @@ module contador(
 
     assign O = OUT;
 
-    always @(posedge clk or rst) begin
+    always @(clk or rst) begin
         if (rst == 1) OUT <= 3'b000;
         else if (load == 1) OUT <= 3'b100;
         else if (decrement == 1 & OUT != 0 ) OUT <= OUT - 1;

@@ -14,16 +14,16 @@ module testbench;
     always #1 begin
         clk0<=~clk0;
     end
-
-   initial begin
+initial begin
     $dumpvars;
     #1;
-    start <= 1;
-    rst0 <= 0;
+    rst0<=0;
     #1;
-    start <= 1;
-    #16;
+    start <=1;
+    #1;
+    start <=0;
+    #30;
     $finish;
-    end
+end
 endmodule
 

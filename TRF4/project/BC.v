@@ -36,36 +36,36 @@ module BC (
     end
 endmodule
 
-module testbench;
+// module testbench;
 
-reg rst0 = 1;
-reg clk0= 0;
-reg zero = 0;
-reg start = 0;
-wire set;
-wire rac;
-wire dec;
-wire cac;
-wire pronto;
+// reg rst0 = 1;
+// reg clk0= 0;
+// reg zero = 0;
+// reg start = 0;
+// wire set;
+// wire rac;
+// wire dec;
+// wire cac;
+// wire pronto;
 
-BC BC0(rst0, clk0, start, zero, set, rac, dec, cac, pronto);
+// BC BC0(rst0, clk0, start, zero, set, rac, dec, cac, pronto);
 
-always #1 begin
-    clk0<=~clk0;
-end
+// always #1 begin
+//     clk0<=~clk0;
+// end
 
-initial begin
-    $dumpvars;
-    #1;
-    rst0<=0;
-    #1;
-    start <=1;
-    #1;
-    start <=0;
-    #10;
-    zero <=1;
-    #10;
-    $finish;
-end
+// initial begin
+//     $dumpvars;
+//     #1;
+//     rst0<=0;
+//     #1;
+//     start <=1;
+//     #1;
+//     start <=0;
+//     #10;
+//     zero <=1;
+//     #10;
+//     $finish;
+// end
     
-endmodule
+// endmodule
