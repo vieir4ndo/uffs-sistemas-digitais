@@ -10,6 +10,6 @@ module acumulador (
 
     always @(posedge load or rst) begin
         if (rst==1) Y <= 8'b00000000;
-        else Y = D;
+        else Y <= D;
     end
 endmodule
